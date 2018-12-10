@@ -1,0 +1,40 @@
+{
+
+if(distance_to_object(argument0)<96){
+    nearObj =instance_nearest(x,y,argument0);
+      show_debug_message(argument0);
+       if(x==  nearObj.x && y>nearObj.y ){
+            if (place_free(x,y-agent_speed)) {
+            move_pacman('up');
+            }
+
+        }
+        if(x==  nearObj.x && y<nearObj.y){
+           if (place_free(x,y+agent_speed)) {
+            move_pacman('down');
+            }
+        }
+        if(point_direction(x,y,nearObj.x,nearObj.y)<90){
+            if (place_free(x+agent_speed,y)) {
+            move_pacman('right');
+            }
+        }
+        else if(point_direction(x,y,nearObj.x,nearObj.y)>90&&point_direction(x,y,nearObj.x,nearObj.y)<180){
+        if (place_free(x-agent_speed,y)) {
+             move_pacman('left');
+            }
+        }            
+        else if(point_direction(x,y,nearObj.x,nearObj.y)>180&&point_direction(x,y,nearObj.x,nearObj.y)<270){
+            if (place_free(x-agent_speed,y)) {
+                move_pacman('left');
+            }
+        }
+        else if(point_direction(x,y,nearObj.x,nearObj.y)>270&&point_direction(x,y,nearObj.x,nearObj.y)<360){
+            if (place_free(x+agent_speed,y)) {
+                move_pacman('right');
+            }
+        }
+        
+        }
+        
+}

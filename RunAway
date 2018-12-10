@@ -1,1 +1,63 @@
+{
 
+nearObj = instance_nearest(x,y,monster_parent);
+     if(x==  nearObj.x && y>nearObj.y ){
+             if (place_free(x,y+agent_speed)) {
+            move_pacman('down');
+            }
+            else if (place_free(x-agent_speed,y)) {
+            move_pacman('left');
+            }
+            else if (place_free(x+agent_speed,y)) {
+            move_pacman('right');
+        }
+
+        }
+        if(x==  nearObj.x && y<nearObj.y){
+        if (place_free(x,y-agent_speed)) {
+            move_pacman('up');
+            }
+          else if (place_free(x-agent_speed,y)) {
+            move_pacman('left');
+        }
+        else if (place_free(x+agent_speed,y)) {
+            move_pacman('right');
+        }
+        
+        }
+        
+        if(point_direction(x,y,nearObj.x,nearObj.y)<90){
+             if (place_free(x-agent_speed,y)) {
+            move_pacman('left');
+        }
+             if (place_free(x,y+agent_speed)) {
+            move_pacman('down');
+        }
+        }
+        else if(point_direction(x,y,nearObj.x,nearObj.y)<180){
+        if ( place_free(x+agent_speed,y)) {
+            move_pacman('right');
+        }
+                if ( place_free(x,y+agent_speed)) {
+            move_pacman('down');
+        }
+        }            
+        else if(point_direction(x,y,nearObj.x,nearObj.y)<270){
+           if ( place_free(x+agent_speed,y)) {
+            move_pacman('right');
+        }
+        if (place_free(x,y-agent_speed)) {
+            move_pacman('up');
+        }
+                }
+        else if(point_direction(x,y,nearObj.x,nearObj.y)<360){
+            if (place_free(x-agent_speed,y)) {
+            move_pacman('left');
+        }
+        if (place_free(x,y-agent_speed)) {
+            move_pacman('up');
+        }
+        }
+        
+        
+        }
